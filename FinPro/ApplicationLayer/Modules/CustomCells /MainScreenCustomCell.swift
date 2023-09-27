@@ -13,7 +13,7 @@ final class MainScreenCustomCell: UICollectionViewCell {
     
     private lazy var image: UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = .systemPink
+        image.image = UIImage(systemName: "apple.terminal.fill")
         image.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(image)
         return image
@@ -29,6 +29,8 @@ final class MainScreenCustomCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super .init(frame: frame)
+        
+        contentView.backgroundColor = .cyan
         setNeedsUpdateConstraints()
     }
     
@@ -42,8 +44,8 @@ final class MainScreenCustomCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             image.centerXAnchor.constraint(equalTo: centerXAnchor),
             image.topAnchor.constraint(equalTo: topAnchor),
-            image.heightAnchor.constraint(equalToConstant: 170),
-            image.widthAnchor.constraint(equalToConstant: 170),
+            image.heightAnchor.constraint(equalToConstant: contentView.frame.height - 25),
+            image.widthAnchor.constraint(equalToConstant: contentView.frame.width - 25),
             
             text.centerXAnchor.constraint(equalTo: centerXAnchor),
             text.bottomAnchor.constraint(equalTo: bottomAnchor)
@@ -51,6 +53,6 @@ final class MainScreenCustomCell: UICollectionViewCell {
     }
     
     func setup() {
-        text.text = "viewModel.name"
+        text.text = "allah"
     }
 }

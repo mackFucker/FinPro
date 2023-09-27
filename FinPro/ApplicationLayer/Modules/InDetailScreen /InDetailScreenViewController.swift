@@ -63,33 +63,62 @@ class InDetailScreenViewController: UIViewController, InDetailScreenDisplayLogic
         super.viewDidLoad()
         doSomething()
         
-        view.backgroundColor = .yellow
         setupUI()
     }
     
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.contentSize = CGSize(width: view.frame.width, height: 900)
+        //    FIXME: remove hardcode value
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
     
-    private lazy var button: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .systemGray
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(goToSecondScreen), for: .touchUpInside)
-        return button
+    private lazy var image: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(systemName: "apple.terminal.fill")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    private lazy var viewForGraph: UIView = {
+        let viewForGraph = UIView()
+        viewForGraph.backgroundColor = .lightGray
+        viewForGraph.translatesAutoresizingMaskIntoConstraints = false
+        return viewForGraph
     }()
     
     @objc
     private func goToSecondScreen() {
+        
     }
     
     private func setupUI() {
-        view.addSubview(button)
+        view.backgroundColor = .systemBackground
+        title = "Bitcoin"
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(image)
+        scrollView.addSubview(viewForGraph)
         
         NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            button.heightAnchor.constraint(equalToConstant: 150),
-            button.widthAnchor.constraint(equalToConstant: 150)
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            image.widthAnchor.constraint(equalToConstant: 70),
+            image.heightAnchor.constraint(equalToConstant: 70),
+            image.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: -60),
+            image.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            viewForGraph.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 50),
+            viewForGraph.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            viewForGraph.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            viewForGraph.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
+    
     
     // MARK: Do something
     

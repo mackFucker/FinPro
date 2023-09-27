@@ -60,7 +60,6 @@ final class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
     }
     
     // MARK: View lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,14 +71,15 @@ final class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
     }
     
     // MARK: UI
-    
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        let collectionView = UICollectionView(frame: CGRect.zero,
+                                              collectionViewLayout: UICollectionViewFlowLayout.init())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
         collectionView.setCollectionViewLayout(layout, animated: true)
-        collectionView.register(MainScreenCustomCell.self, forCellWithReuseIdentifier: MainScreenCustomCell.identifer)
+        collectionView.register(MainScreenCustomCell.self,
+                                forCellWithReuseIdentifier: MainScreenCustomCell.identifer)
         return collectionView
     }()
 
@@ -100,7 +100,6 @@ final class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
     }
     
     // MARK: Do something
-    
     //@IBOutlet weak var nameTextField: UITextField!
     
     func doSomething() {
@@ -118,11 +117,14 @@ extension MainScreenViewController: UICollectionViewDelegate {
 }
 
 extension MainScreenViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        return 20
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainScreenCustomCell.identifer,
                                                  for: indexPath as IndexPath) as! MainScreenCustomCell
         cell.setup()
@@ -131,15 +133,27 @@ extension MainScreenViewController: UICollectionViewDataSource {
 }
 
 extension MainScreenViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 160, height: 200)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: view.frame.width - 300,
+                      height: view.frame.width - 300)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 50, left: 50, bottom: 100, right: 50)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 20,
+                            left: 20,
+                            bottom: 100,
+                            right: 20)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        
         let InfoScreen = InDetailScreenViewController()
         self.navigationController?.pushViewController(InfoScreen, animated: true)
     }

@@ -12,18 +12,15 @@
 
 import UIKit
 
-@objc protocol MainScreenRoutingLogic
-{
+@objc protocol MainScreenRoutingLogic {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol MainScreenDataPassing
-{
+protocol MainScreenDataPassing {
   var dataStore: MainScreenDataStore? { get }
 }
 
-class MainScreenRouter: NSObject, MainScreenRoutingLogic, MainScreenDataPassing
-{
+final class MainScreenRouter: NSObject, MainScreenRoutingLogic, MainScreenDataPassing {
   weak var viewController: MainScreenViewController?
   var dataStore: MainScreenDataStore?
   
