@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F042CF32AC4184700F555B8 /* MainScreenCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F042CF22AC4184700F555B8 /* MainScreenCustomCell.swift */; };
 		8FEC521A2AC3423E0094A078 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC52192AC3423E0094A078 /* AppDelegate.swift */; };
 		8FEC521C2AC3423E0094A078 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC521B2AC3423E0094A078 /* SceneDelegate.swift */; };
 		8FEC52232AC342400094A078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC52222AC342400094A078 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F042CF22AC4184700F555B8 /* MainScreenCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCustomCell.swift; sourceTree = "<group>"; };
 		8FEC52162AC3423E0094A078 /* FinPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FEC52192AC3423E0094A078 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FEC521B2AC3423E0094A078 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F042CF12AC4182300F555B8 /* CustomCells  */ = {
+			isa = PBXGroup;
+			children = (
+				8F042CF22AC4184700F555B8 /* MainScreenCustomCell.swift */,
+			);
+			path = "CustomCells ";
+			sourceTree = "<group>";
+		};
+		8F042CF42AC41B5900F555B8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8F042CF52AC41BAC00F555B8 /* ApplicationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				8F042CF42AC41B5900F555B8 /* Services */,
+				8FEC52702AC37EFE0094A078 /* Modules */,
+			);
+			path = ApplicationLayer;
+			sourceTree = "<group>";
+		};
+		8F042CF62AC41C5B00F555B8 /* CoreLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreLayer;
+			sourceTree = "<group>";
+		};
 		8FEC520D2AC3423E0094A078 = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +160,9 @@
 		8FEC52182AC3423E0094A078 /* FinPro */ = {
 			isa = PBXGroup;
 			children = (
-				8FEC52702AC37EFE0094A078 /* Modules */,
 				8FEC52492AC342490094A078 /* App */,
+				8F042CF52AC41BAC00F555B8 /* ApplicationLayer */,
+				8F042CF62AC41C5B00F555B8 /* CoreLayer */,
 				8FEC52272AC342400094A078 /* Info.plist */,
 			);
 			path = FinPro;
@@ -226,6 +260,7 @@
 		8FEC52702AC37EFE0094A078 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8F042CF12AC4182300F555B8 /* CustomCells  */,
 				8FEC52642AC363960094A078 /* Onboardind */,
 				8FEC524A2AC342840094A078 /* MainScreen */,
 				8FEC52512AC342840094A078 /* InDetailScreen  */,
@@ -366,6 +401,7 @@
 				8FEC525B2AC342840094A078 /* MainScreenWorker.swift in Sources */,
 				8FEC521A2AC3423E0094A078 /* AppDelegate.swift in Sources */,
 				8FEC525F2AC342840094A078 /* InDetailScreenInteractor.swift in Sources */,
+				8F042CF32AC4184700F555B8 /* MainScreenCustomCell.swift in Sources */,
 				8FEC525D2AC342840094A078 /* MainScreenModels.swift in Sources */,
 				8FEC52602AC342840094A078 /* InDetailScreenWorker.swift in Sources */,
 				8FEC52622AC342840094A078 /* InDetailScreenModels.swift in Sources */,

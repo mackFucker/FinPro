@@ -48,7 +48,9 @@ final class OnboardingViewImpl: UIView {
     }()
     
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, imageView])
+        let stackView = UIStackView(arrangedSubviews: [titleLabel,
+                                                       subtitleLabel,
+                                                       imageView])
         stackView.axis = .vertical
         stackView.backgroundColor = .systemBackground
         stackView.alignment = .center
@@ -80,7 +82,10 @@ final class OnboardingViewImpl: UIView {
 }
 
 extension OnboardingViewImpl: OnboardingViewInput {
-    func setDataOnboarding(image: String, title: String, subtitle: String) {
+    func setDataOnboarding(image: String,
+                           title: String,
+                           subtitle: String) {
+        
         imageView.image = UIImage(named: image)
         titleLabel.text = title
         subtitleLabel.text = subtitle

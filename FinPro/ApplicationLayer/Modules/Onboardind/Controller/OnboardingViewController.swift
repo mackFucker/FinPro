@@ -49,7 +49,6 @@ final class OnboardingViewController: UIPageViewController {
     init() {
         super.init(transitionStyle: .scroll,
                    navigationOrientation: .horizontal)
-        
     }
     
     override init(transitionStyle style: UIPageViewController.TransitionStyle,
@@ -132,7 +131,7 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
         if nextIndex >= pages.count {
             return nil
         }
-        
+
         return pages[nextIndex]
     }
 }
