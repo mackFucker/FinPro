@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8F042CF32AC4184700F555B8 /* MainScreenCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F042CF22AC4184700F555B8 /* MainScreenCustomCell.swift */; };
+		8F4D14292AC6285C00EDD543 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D14282AC6285C00EDD543 /* Router.swift */; };
+		8F4D142B2AC6289000EDD543 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D142A2AC6289000EDD543 /* Transition.swift */; };
+		8F4D14312AC6298800EDD543 /* PopToTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D14302AC6298800EDD543 /* PopToTransition.swift */; };
+		8F4D14332AC6299500EDD543 /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D14322AC6299500EDD543 /* PushTransition.swift */; };
 		8FEC521A2AC3423E0094A078 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC52192AC3423E0094A078 /* AppDelegate.swift */; };
 		8FEC521C2AC3423E0094A078 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC521B2AC3423E0094A078 /* SceneDelegate.swift */; };
 		8FEC52232AC342400094A078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC52222AC342400094A078 /* Assets.xcassets */; };
@@ -52,6 +56,10 @@
 
 /* Begin PBXFileReference section */
 		8F042CF22AC4184700F555B8 /* MainScreenCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCustomCell.swift; sourceTree = "<group>"; };
+		8F4D14282AC6285C00EDD543 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		8F4D142A2AC6289000EDD543 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		8F4D14302AC6298800EDD543 /* PopToTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToTransition.swift; sourceTree = "<group>"; };
+		8F4D14322AC6299500EDD543 /* PushTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTransition.swift; sourceTree = "<group>"; };
 		8FEC52162AC3423E0094A078 /* FinPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FEC52192AC3423E0094A078 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FEC521B2AC3423E0094A078 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,8 +141,36 @@
 		8F042CF62AC41C5B00F555B8 /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
+				8F4D14172AC5D22600EDD543 /* Routing */,
+				8F4D142F2AC6290700EDD543 /* Transitions */,
 			);
 			path = CoreLayer;
+			sourceTree = "<group>";
+		};
+		8F4D14172AC5D22600EDD543 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				8F4D142C2AC628DB00EDD543 /* Base */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		8F4D142C2AC628DB00EDD543 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8F4D142A2AC6289000EDD543 /* Transition.swift */,
+				8F4D14282AC6285C00EDD543 /* Router.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		8F4D142F2AC6290700EDD543 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				8F4D14302AC6298800EDD543 /* PopToTransition.swift */,
+				8F4D14322AC6299500EDD543 /* PushTransition.swift */,
+			);
+			path = Transitions;
 			sourceTree = "<group>";
 		};
 		8FEC520D2AC3423E0094A078 = {
@@ -199,9 +235,9 @@
 		8FEC524A2AC342840094A078 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				8FEC524D2AC342840094A078 /* MainScreenRouter.swift */,
 				8FEC524B2AC342840094A078 /* MainScreenInteractor.swift */,
 				8FEC524C2AC342840094A078 /* MainScreenPresenter.swift */,
-				8FEC524D2AC342840094A078 /* MainScreenRouter.swift */,
 				8FEC524E2AC342840094A078 /* MainScreenWorker.swift */,
 				8FEC524F2AC342840094A078 /* MainScreenViewController.swift */,
 				8FEC52502AC342840094A078 /* MainScreenModels.swift */,
@@ -212,10 +248,10 @@
 		8FEC52512AC342840094A078 /* InDetailScreen  */ = {
 			isa = PBXGroup;
 			children = (
+				8FEC52552AC342840094A078 /* InDetailScreenRouter.swift */,
 				8FEC52522AC342840094A078 /* InDetailScreenViewController.swift */,
 				8FEC52532AC342840094A078 /* InDetailScreenInteractor.swift */,
 				8FEC52542AC342840094A078 /* InDetailScreenWorker.swift */,
-				8FEC52552AC342840094A078 /* InDetailScreenRouter.swift */,
 				8FEC52562AC342840094A078 /* InDetailScreenModels.swift */,
 				8FEC52572AC342840094A078 /* InDetailScreenPresenter.swift */,
 			);
@@ -398,6 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F4D142B2AC6289000EDD543 /* Transition.swift in Sources */,
 				8FEC525B2AC342840094A078 /* MainScreenWorker.swift in Sources */,
 				8FEC521A2AC3423E0094A078 /* AppDelegate.swift in Sources */,
 				8FEC525F2AC342840094A078 /* InDetailScreenInteractor.swift in Sources */,
@@ -410,11 +447,14 @@
 				8FEC526C2AC363960094A078 /* OnboardingPageViewController.swift in Sources */,
 				8FEC52592AC342840094A078 /* MainScreenPresenter.swift in Sources */,
 				8FEC52632AC342840094A078 /* InDetailScreenPresenter.swift in Sources */,
+				8F4D14292AC6285C00EDD543 /* Router.swift in Sources */,
 				8FEC521C2AC3423E0094A078 /* SceneDelegate.swift in Sources */,
 				8FEC526D2AC363960094A078 /* OnboardingViewController.swift in Sources */,
 				8FEC52612AC342840094A078 /* InDetailScreenRouter.swift in Sources */,
+				8F4D14332AC6299500EDD543 /* PushTransition.swift in Sources */,
 				8FEC525A2AC342840094A078 /* MainScreenRouter.swift in Sources */,
 				8FEC525E2AC342840094A078 /* InDetailScreenViewController.swift in Sources */,
+				8F4D14312AC6298800EDD543 /* PopToTransition.swift in Sources */,
 				8FEC526E2AC363960094A078 /* OnboardingModel.swift in Sources */,
 				8FEC52582AC342840094A078 /* MainScreenInteractor.swift in Sources */,
 			);

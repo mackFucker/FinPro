@@ -17,8 +17,7 @@ protocol MainScreenBusinessLogic
   func doSomething(request: MainScreen.Something.Request)
 }
 
-protocol MainScreenDataStore
-{
+protocol MainScreenDataStore {
   //var name: String { get set }
 }
 

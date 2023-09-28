@@ -17,8 +17,9 @@ protocol MainScreenDisplayLogic: AnyObject {
 }
 
 final class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
+    
     var interactor: MainScreenBusinessLogic?
-    var router: (NSObjectProtocol & MainScreenRoutingLogic & MainScreenDataPassing)?
+    weak var router: MainScreenRouter.Routes?
     // MARK: Object lifecycle
     
     init() {
@@ -40,23 +41,11 @@ final class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
         let interactor = MainScreenInteractor()
         let presenter = MainScreenPresenter()
         let router = MainScreenRouter()
+        
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
         presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
-    }
-    
-    // MARK: Routing
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
     }
     
     // MARK: View lifecycle
@@ -153,8 +142,7 @@ extension MainScreenViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        
-        let InfoScreen = InDetailScreenViewController()
-        self.navigationController?.pushViewController(InfoScreen, animated: true)
+        //FIXME: не вызывается ф-ция 
+        router?.openInDetail()
     }
 }

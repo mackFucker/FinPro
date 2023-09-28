@@ -12,13 +12,11 @@
 
 import UIKit
 
-protocol MainScreenPresentationLogic
-{
+protocol MainScreenPresentationLogic {
   func presentSomething(response: MainScreen.Something.Response)
 }
 
-class MainScreenPresenter: MainScreenPresentationLogic
-{
+class MainScreenPresenter: MainScreenPresentationLogic {
   weak var viewController: MainScreenDisplayLogic?
   
   // MARK: Do something
