@@ -19,7 +19,7 @@ protocol MainScreenDisplayLogic: AnyObject {
 final class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
     
     var interactor: MainScreenBusinessLogic?
-    weak var router: MainScreenRouter.Routes?
+    var router: MainScreenRouter.Routes?
     // MARK: Object lifecycle
     
     init() {
@@ -43,6 +43,8 @@ final class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
         let router = MainScreenRouter()
         
         viewController.interactor = interactor
+        router.viewController = self
+        
         viewController.router = router
         interactor.presenter = presenter
         presenter.viewController = viewController
@@ -142,7 +144,7 @@ extension MainScreenViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        //FIXME: не вызывается ф-ция 
+        //FIXME: не вызывается ф-ция
         router?.openInDetail()
     }
 }

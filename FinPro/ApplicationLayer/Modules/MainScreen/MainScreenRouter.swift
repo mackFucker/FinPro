@@ -11,7 +11,7 @@ protocol MainScreenRoute {
     func openInDetail()
 }
 
-class MainScreenRouter: Router<MainScreenViewController>, MainScreenRouter.Routes {
+final class MainScreenRouter: Router<MainScreenViewController>, MainScreenRouter.Routes {
     typealias Routes = Closable & InDetailScreenRoute & MainScreenRoute
 }
 

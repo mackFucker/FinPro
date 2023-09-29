@@ -13,7 +13,7 @@ class PushTransition {
 
 extension PushTransition: Transition {
     func open(_ viewController: UIViewController) {
-        self.viewController?.navigationController?.pushViewController(viewController, animated: true)
+        self.viewController!.navigationController?.pushViewController(viewController, animated: true)
     }
 
     func close(_ viewController: UIViewController) {
