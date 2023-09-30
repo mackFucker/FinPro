@@ -173,7 +173,7 @@ extension OnboardingViewController {
     }
     
     private func onLoginScreen() {
-        navigationController?.pushViewController(MainScreenViewController(), animated: true)
+//        navigationController?.pushViewController(MainScreenViewController(), animated: true)
     }
 }
 

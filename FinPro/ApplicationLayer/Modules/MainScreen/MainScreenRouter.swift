@@ -19,8 +19,8 @@ extension MainScreenRoute where Self: RouterProtocol {
     func openInDetail() {
         
         let transition = PushTransition()
-        let vc = InDetailScreenViewController()
-        open(vc, transition: transition)
+        let vc = factory?.makeInDetailScreen()
+        open(vc as! UIViewController, transition: transition)
     }
 }
 

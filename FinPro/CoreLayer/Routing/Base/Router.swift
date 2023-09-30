@@ -14,13 +14,15 @@ protocol Closable: AnyObject {
 protocol RouterProtocol: AnyObject {
     associatedtype ViewController: UIViewController
     var viewController: ViewController? {get}
+    var factory: MainModuleScreenFactory? {get}
     
     func open(_ viewController: UIViewController, transition: Transition)
 }
 
 class Router<U>: RouterProtocol where U: UIViewController {
     typealias ViewController = U
-    
+    var factory: MainModuleScreenFactory?
+
     weak var viewController: ViewController?
     var openTransition: Transition?
     

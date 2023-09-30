@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BB9E8C37-B1B6-464F-9CC1-94125B4D2581"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FinPro/ApplicationLayer/Modules/MainScreen/MainScreenRouter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "openInDetail()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "DBA41BC1-7291-4A9D-BF72-7EF1576DE83D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -30,10 +14,42 @@
             filePath = "FinPro/CoreLayer/Routing/Base/Router.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "open(_:transition:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DBA41BC1-7291-4A9D-BF72-7EF1576DE83D - 9ab7c99542764705"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinPro.Router.open(_: __C.UIViewController, transition: FinPro.Transition) -&gt; ()"
+                  moduleName = "FinPro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devidkihtenko/Desktop/FinPro/FinPro/CoreLayer/Routing/Base/Router.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "DBA41BC1-7291-4A9D-BF72-7EF1576DE83D - 9ab7c9954276474b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinPro.Router.open(_: __C.UIViewController, transition: FinPro.Transition) -&gt; ()"
+                  moduleName = "FinPro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devidkihtenko/Desktop/FinPro/FinPro/CoreLayer/Routing/Base/Router.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

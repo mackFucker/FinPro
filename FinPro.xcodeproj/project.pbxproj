@@ -12,6 +12,10 @@
 		8F4D142B2AC6289000EDD543 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D142A2AC6289000EDD543 /* Transition.swift */; };
 		8F4D14312AC6298800EDD543 /* PopToTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D14302AC6298800EDD543 /* PopToTransition.swift */; };
 		8F4D14332AC6299500EDD543 /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D14322AC6299500EDD543 /* PushTransition.swift */; };
+		8F4D14362AC6F01100EDD543 /* MainModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D14352AC6F01100EDD543 /* MainModuleFactory.swift */; };
+		8F4D143B2AC7081600EDD543 /* DICProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D143A2AC7081600EDD543 /* DICProtocol.swift */; };
+		8F4D143D2AC7084400EDD543 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D143C2AC7084400EDD543 /* DIContainer.swift */; };
+		8F4D143F2AC70C8900EDD543 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4D143E2AC70C8900EDD543 /* UserDefaultsService.swift */; };
 		8FEC521A2AC3423E0094A078 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC52192AC3423E0094A078 /* AppDelegate.swift */; };
 		8FEC521C2AC3423E0094A078 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC521B2AC3423E0094A078 /* SceneDelegate.swift */; };
 		8FEC52232AC342400094A078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC52222AC342400094A078 /* Assets.xcassets */; };
@@ -60,6 +64,10 @@
 		8F4D142A2AC6289000EDD543 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		8F4D14302AC6298800EDD543 /* PopToTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToTransition.swift; sourceTree = "<group>"; };
 		8F4D14322AC6299500EDD543 /* PushTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTransition.swift; sourceTree = "<group>"; };
+		8F4D14352AC6F01100EDD543 /* MainModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleFactory.swift; sourceTree = "<group>"; };
+		8F4D143A2AC7081600EDD543 /* DICProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DICProtocol.swift; sourceTree = "<group>"; };
+		8F4D143C2AC7084400EDD543 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		8F4D143E2AC70C8900EDD543 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		8FEC52162AC3423E0094A078 /* FinPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FEC52192AC3423E0094A078 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FEC521B2AC3423E0094A078 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +133,7 @@
 		8F042CF42AC41B5900F555B8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8F4D143E2AC70C8900EDD543 /* UserDefaultsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -132,6 +141,7 @@
 		8F042CF52AC41BAC00F555B8 /* ApplicationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				8F4D14342AC6EF4700EDD543 /* Factories */,
 				8F042CF42AC41B5900F555B8 /* Services */,
 				8FEC52702AC37EFE0094A078 /* Modules */,
 			);
@@ -141,6 +151,7 @@
 		8F042CF62AC41C5B00F555B8 /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
+				8F4D14392AC707FA00EDD543 /* DIContainer */,
 				8F4D14172AC5D22600EDD543 /* Routing */,
 				8F4D142F2AC6290700EDD543 /* Transitions */,
 			);
@@ -171,6 +182,23 @@
 				8F4D14322AC6299500EDD543 /* PushTransition.swift */,
 			);
 			path = Transitions;
+			sourceTree = "<group>";
+		};
+		8F4D14342AC6EF4700EDD543 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				8F4D14352AC6F01100EDD543 /* MainModuleFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		8F4D14392AC707FA00EDD543 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				8F4D143A2AC7081600EDD543 /* DICProtocol.swift */,
+				8F4D143C2AC7084400EDD543 /* DIContainer.swift */,
+			);
+			path = DIContainer;
 			sourceTree = "<group>";
 		};
 		8FEC520D2AC3423E0094A078 = {
@@ -440,13 +468,16 @@
 				8FEC525F2AC342840094A078 /* InDetailScreenInteractor.swift in Sources */,
 				8F042CF32AC4184700F555B8 /* MainScreenCustomCell.swift in Sources */,
 				8FEC525D2AC342840094A078 /* MainScreenModels.swift in Sources */,
+				8F4D143D2AC7084400EDD543 /* DIContainer.swift in Sources */,
 				8FEC52602AC342840094A078 /* InDetailScreenWorker.swift in Sources */,
 				8FEC52622AC342840094A078 /* InDetailScreenModels.swift in Sources */,
 				8FEC526F2AC363960094A078 /* OnboardingPageView.swift in Sources */,
 				8FEC525C2AC342840094A078 /* MainScreenViewController.swift in Sources */,
+				8F4D143B2AC7081600EDD543 /* DICProtocol.swift in Sources */,
 				8FEC526C2AC363960094A078 /* OnboardingPageViewController.swift in Sources */,
 				8FEC52592AC342840094A078 /* MainScreenPresenter.swift in Sources */,
 				8FEC52632AC342840094A078 /* InDetailScreenPresenter.swift in Sources */,
+				8F4D143F2AC70C8900EDD543 /* UserDefaultsService.swift in Sources */,
 				8F4D14292AC6285C00EDD543 /* Router.swift in Sources */,
 				8FEC521C2AC3423E0094A078 /* SceneDelegate.swift in Sources */,
 				8FEC526D2AC363960094A078 /* OnboardingViewController.swift in Sources */,
@@ -455,6 +486,7 @@
 				8FEC525A2AC342840094A078 /* MainScreenRouter.swift in Sources */,
 				8FEC525E2AC342840094A078 /* InDetailScreenViewController.swift in Sources */,
 				8F4D14312AC6298800EDD543 /* PopToTransition.swift in Sources */,
+				8F4D14362AC6F01100EDD543 /* MainModuleFactory.swift in Sources */,
 				8FEC526E2AC363960094A078 /* OnboardingModel.swift in Sources */,
 				8FEC52582AC342840094A078 /* MainScreenInteractor.swift in Sources */,
 			);

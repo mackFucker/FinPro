@@ -16,16 +16,27 @@ protocol MainScreenDisplayLogic: AnyObject {
     func displaySomething(viewModel: MainScreen.Something.ViewModel)
 }
 
-final class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
+final class MainScreenViewController: UIViewController {
     
     var interactor: MainScreenBusinessLogic?
     var router: MainScreenRouter.Routes?
-    // MARK: Object lifecycle
     
-    init() {
+    init(factory: MainModuleScreenFactory) {
+        let viewController = self
+        let interactor = MainScreenInteractor()
+        let presenter = MainScreenPresenter()
+        let router = MainScreenRouter()
+        
+        viewController.interactor = interactor
+        viewController.router = router
+        
+        interactor.presenter = presenter
+        router.factory = factory
         
         super.init(nibName: nil, bundle: nil)
         
+        router.viewController = self
+        presenter.viewController = viewController
         self.view.backgroundColor = .red
         self.setup()
     }
@@ -33,21 +44,9 @@ final class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: Setup
-    
+        
     private func setup() {
-        let viewController = self
-        let interactor = MainScreenInteractor()
-        let presenter = MainScreenPresenter()
-        let router = MainScreenRouter()
         
-        viewController.interactor = interactor
-        router.viewController = self
-        
-        viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
     }
     
     // MARK: View lifecycle
@@ -90,14 +89,13 @@ final class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
         ])
     }
     
-    // MARK: Do something
-    //@IBOutlet weak var nameTextField: UITextField!
-    
     func doSomething() {
         let request = MainScreen.Something.Request()
         interactor?.doSomething(request: request)
     }
-    
+}
+
+extension MainScreenViewController: MainScreenDisplayLogic {
     func displaySomething(viewModel: MainScreen.Something.ViewModel) {
         //nameTextField.text = viewModel.name
     }
@@ -144,7 +142,7 @@ extension MainScreenViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        //FIXME: не вызывается ф-ция
+        
         router?.openInDetail()
     }
 }
