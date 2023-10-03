@@ -23,7 +23,7 @@
 		8FEC52312AC342400094A078 /* FinProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC52302AC342400094A078 /* FinProTests.swift */; };
 		8FEC523B2AC342400094A078 /* FinProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC523A2AC342400094A078 /* FinProUITests.swift */; };
 		8FEC523D2AC342400094A078 /* FinProUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC523C2AC342400094A078 /* FinProUITestsLaunchTests.swift */; };
-		8FEC52582AC342840094A078 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC524B2AC342840094A078 /* MainScreenInteractor.swift */; };
+		8FEC52582AC342840094A078 /* MainScreenInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC524B2AC342840094A078 /* MainScreenInteractorImpl.swift */; };
 		8FEC52592AC342840094A078 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC524C2AC342840094A078 /* MainScreenPresenter.swift */; };
 		8FEC525A2AC342840094A078 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC524D2AC342840094A078 /* MainScreenRouter.swift */; };
 		8FEC525B2AC342840094A078 /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEC524E2AC342840094A078 /* MainScreenWorker.swift */; };
@@ -79,7 +79,7 @@
 		8FEC52362AC342400094A078 /* FinProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinProUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FEC523A2AC342400094A078 /* FinProUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinProUITests.swift; sourceTree = "<group>"; };
 		8FEC523C2AC342400094A078 /* FinProUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinProUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8FEC524B2AC342840094A078 /* MainScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
+		8FEC524B2AC342840094A078 /* MainScreenInteractorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenInteractorImpl.swift; sourceTree = "<group>"; };
 		8FEC524C2AC342840094A078 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		8FEC524D2AC342840094A078 /* MainScreenRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
 		8FEC524E2AC342840094A078 /* MainScreenWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenWorker.swift; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				8FEC524D2AC342840094A078 /* MainScreenRouter.swift */,
-				8FEC524B2AC342840094A078 /* MainScreenInteractor.swift */,
+				8FEC524B2AC342840094A078 /* MainScreenInteractorImpl.swift */,
 				8FEC524C2AC342840094A078 /* MainScreenPresenter.swift */,
 				8FEC524E2AC342840094A078 /* MainScreenWorker.swift */,
 				8FEC524F2AC342840094A078 /* MainScreenViewController.swift */,
@@ -488,7 +488,7 @@
 				8F4D14312AC6298800EDD543 /* PopToTransition.swift in Sources */,
 				8F4D14362AC6F01100EDD543 /* MainModuleFactory.swift in Sources */,
 				8FEC526E2AC363960094A078 /* OnboardingModel.swift in Sources */,
-				8FEC52582AC342840094A078 /* MainScreenInteractor.swift in Sources */,
+				8FEC52582AC342840094A078 /* MainScreenInteractorImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

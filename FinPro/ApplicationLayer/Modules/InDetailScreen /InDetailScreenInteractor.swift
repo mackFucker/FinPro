@@ -12,30 +12,20 @@
 
 import UIKit
 
-protocol InDetailScreenBusinessLogic
-{
-  func doSomething(request: InDetailScreen.Something.Request)
+protocol InDetailScreenBusinessLogic: AnyObject {
+    func doSomething(request: InDetailScreen.Something.Request)
+    var presenter: InDetailScreenPresentationLogic? {get set}
 }
 
-protocol InDetailScreenDataStore
-{
-  //var name: String { get set }
-}
+final class InDetailScreenInteractor: InDetailScreenBusinessLogic {    
+    var presenter: InDetailScreenPresentationLogic?
+    var worker: InDetailScreenWorker?
 
-class InDetailScreenInteractor: InDetailScreenBusinessLogic, InDetailScreenDataStore
-{
-  var presenter: InDetailScreenPresentationLogic?
-  var worker: InDetailScreenWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: InDetailScreen.Something.Request)
-  {
-    worker = InDetailScreenWorker()
-    worker?.doSomeWork()
-    
-    let response = InDetailScreen.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    func doSomething(request: InDetailScreen.Something.Request) {
+        worker = InDetailScreenWorker()
+        worker?.doSomeWork()
+        
+        let response = InDetailScreen.Something.Response()
+        presenter?.presentSomething(response: response)
+    }
 }

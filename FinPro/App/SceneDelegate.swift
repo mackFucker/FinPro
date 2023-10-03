@@ -19,27 +19,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let factory = DIContainer.shared.resolve(type: MainModuleScreenFactory.self)
-//        let viewController = OnboardingViewController()
-//        let viewController = InDetailScreenViewController()
-        let viewController = MainScreenViewController(factory: factory)
+        
+        let viewController = start()
         
         let navController = UINavigationController(rootViewController: viewController)
         navController.navigationBar.prefersLargeTitles = true
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
         guard let _ = (scene as? UIWindowScene) else { return }
-        
-        start()
     }
     
-    func start() {
-        if !userDefaultsService.isNotFirstLaunch {
-                print("first")
+    func start() -> UIViewController {
+        let factory = DIContainer.shared.resolve(type: MainModuleScreenFactory.self)
+
+        if userDefaultsService.isNotFirstLaunch {
+            print("first launch")
             userDefaultsService.isNotFirstLaunch = true
+            
+            let viewController = OnboardingViewController()
+            return viewController
         }
         else {
-            print("Not first")
+            print("Not first launch")
+            let viewController = factory.makeMainScreen()
+
+            return viewController as! UIViewController
         }
     }
 }

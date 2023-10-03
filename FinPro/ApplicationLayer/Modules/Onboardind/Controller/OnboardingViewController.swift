@@ -173,7 +173,10 @@ extension OnboardingViewController {
     }
     
     private func onLoginScreen() {
-//        navigationController?.pushViewController(MainScreenViewController(), animated: true)
+        let factory = DIContainer.shared.resolve(type: MainModuleScreenFactory.self)
+        let viewController = factory.makeMainScreen() as! UIViewController
+        navigationController?.pushViewController(viewController,
+                                                 animated: true)
     }
 }
 

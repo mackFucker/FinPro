@@ -19,34 +19,28 @@ protocol MainScreenDisplayLogic: AnyObject {
 final class MainScreenViewController: UIViewController {
     
     var interactor: MainScreenBusinessLogic?
-    var router: MainScreenRouter.Routes?
+    let router: MainScreenRouter.Routes?
     
-    init(factory: MainModuleScreenFactory) {
-        let viewController = self
-        let interactor = MainScreenInteractor()
-        let presenter = MainScreenPresenter()
-        let router = MainScreenRouter()
+    init(factory: MainModuleScreenFactory,
+         interactor: MainScreenInteractorImpl,
+         presenter: MainScreenPresenter,
+         router: MainScreenRouter) {
         
-        viewController.interactor = interactor
-        viewController.router = router
+        self.interactor = interactor
+        self.router = router
         
         interactor.presenter = presenter
         router.factory = factory
         
         super.init(nibName: nil, bundle: nil)
         
+        navigationController?.setNavigationBarHidden(true, animated: false)
         router.viewController = self
-        presenter.viewController = viewController
-        self.view.backgroundColor = .red
-        self.setup()
+        presenter.viewController = self
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-        
-    private func setup() {
-        
     }
     
     // MARK: View lifecycle
@@ -72,7 +66,7 @@ final class MainScreenViewController: UIViewController {
                                 forCellWithReuseIdentifier: MainScreenCustomCell.identifer)
         return collectionView
     }()
-
+    
     @objc
     private func goToInDetail() {
         
@@ -115,7 +109,7 @@ extension MainScreenViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainScreenCustomCell.identifer,
-                                                 for: indexPath as IndexPath) as! MainScreenCustomCell
+                                                      for: indexPath as IndexPath) as! MainScreenCustomCell
         cell.setup()
         return cell
     }

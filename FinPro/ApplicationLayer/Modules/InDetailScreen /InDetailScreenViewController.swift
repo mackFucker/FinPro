@@ -16,46 +16,25 @@ protocol InDetailScreenDisplayLogic: AnyObject {
     func displaySomething(viewModel: InDetailScreen.Something.ViewModel)
 }
 
-class InDetailScreenViewController: UIViewController, InDetailScreenDisplayLogic {
+final class InDetailScreenViewController: UIViewController, InDetailScreenDisplayLogic {
     
     var interactor: InDetailScreenBusinessLogic?
     var router: InDetailScreenRouter?
-    // MARK: Object lifecycle
     
-    init() {
+    init(interactor: InDetailScreenBusinessLogic,
+         presenter: InDetailScreenPresentationLogic) {
         super.init(nibName: nil, bundle: nil)
-        self.setup()
+        
+        interactor.presenter = presenter
+        self.interactor = interactor
+        
+        presenter.viewController = self
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    // MARK: Setup
-    
-    private func setup() {
-        let viewController = self
-        let interactor = InDetailScreenInteractor()
-        let presenter = InDetailScreenPresenter()
-        let router = InDetailScreenRouter()
-        viewController.interactor = interactor
-        viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
-    }
-    
-    // MARK: Routing
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let scene = segue.identifier {
-//            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-//            if let router = router, router.responds(to: selector) {
-//                router.perform(selector, with: segue)
-//            }
-//        }
-//    }
-//    
-    // MARK: View lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         doSomething()

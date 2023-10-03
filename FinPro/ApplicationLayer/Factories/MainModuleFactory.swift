@@ -21,10 +21,14 @@ struct MainModuleScreenFactoryImpl: MainModuleScreenFactory {
     }
     
     func makeMainScreen() -> MainScreenDisplayLogic {
-        return MainScreenViewController(factory: container.resolve(type: MainModuleScreenFactory.self) as! MainModuleScreenFactoryImpl)
+        return MainScreenViewController(factory: container.resolve(type: MainModuleScreenFactory.self),
+                                        interactor: container.resolve(type: MainScreenInteractorImpl.self),
+                                        presenter: container.resolve(type: MainScreenPresenter.self),
+                                        router: container.resolve(type: MainScreenRouter.self))
     }
     
     func makeInDetailScreen() -> InDetailScreenDisplayLogic {
-        return InDetailScreenViewController()
+        return InDetailScreenViewController(interactor: container.resolve(type: InDetailScreenBusinessLogic.self),
+                                            presenter: container.resolve(type: InDetailScreenPresentationLogic.self))
     }
 }
